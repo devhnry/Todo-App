@@ -102,8 +102,12 @@ export default function App() {
           onClick={handleTodoCheck}
           onDelete={handleDeleteTask}
           onClear={handleClearTask}
+          filterClick={toggleCategory} 
+          selectCategory={category}
         />
-        <TodoFilter onClick={toggleCategory} selectedCategory={category} />
+        <div className="sm:hidden">
+          <TodoFilter onClick={toggleCategory} selectedCategory={category} />
+        </div>
       </div>
     </main>
   );

@@ -1,3 +1,5 @@
+import TodoFilter from "./TodoFilter";
+
 interface Todo {
   id: number;
   task: string;
@@ -9,9 +11,18 @@ interface Props {
   onClick: (id: number) => void;
   onDelete: (id: number) => void;
   onClear: () => void;
+  filterClick: (cat: string) => void;
+  selectCategory: string;
 }
 
-export default function TodoList({ todo, onClick, onDelete, onClear }: Props) {
+export default function TodoList({
+  todo,
+  onClick,
+  onDelete,
+  onClear,
+  filterClick,
+  selectCategory,
+}: Props) {
   const uncheckedItem = todo.filter((item) => item.checked === false).length;
   if (todo.length === 0) return null;
   return (
@@ -60,17 +71,23 @@ export default function TodoList({ todo, onClick, onDelete, onClear }: Props) {
           </li>
         ))}
         <li className="bg-white-100 dark:bg-dark-grayish-blue-700  flex justify-between font-normal text-dark-grayish-blue-100 dark:text-dark-grayish-blue-300 px-5 py-[14px] text-[12px] md:text-[13.5px]">
-            <div className={`${uncheckedItem === 0} ? "hidden" : "block"`}>
-              {uncheckedItem} {uncheckedItem === 1 ? `item` : "items"} left
-            </div>
-            <button
-              onClick={onClear}
-              className="hover:text-dark-grayish-blue-300
+          <div className={`${uncheckedItem === 0} ? "hidden" : "block"`}>
+            {uncheckedItem} {uncheckedItem === 1 ? `item` : "items"} left
+          </div>
+          <div className="sm:block hidden">
+            <TodoFilter
+              onClick={filterClick}
+              selectedCategory={selectCategory}
+            />
+          </div>
+          <button
+            onClick={onClear}
+            className="hover:text-dark-grayish-blue-300
               dark:hover:text-light-grayish-blue-100 transition-all"
-              type="button"
-            >
-              Clear Completed
-            </button>
+            type="button"
+          >
+            Clear Completed
+          </button>
         </li>
       </ul>
     </div>
