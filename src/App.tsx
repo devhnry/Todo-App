@@ -7,18 +7,13 @@ import Header from "./Components/Header";
 export default function App() {
   const [theme, setTheme] = useState("");
   const [category, setCategory] = useState("All");
-  const [todo, setTodo] = useState([
-    {
-      id: 1,
-      task: "Complete online JavaScript course",
-      checked: false,
-    },
-    {
-      id: 2,
-      task: "Jog around the park 3x",
-      checked: false,
-    },
-  ]);
+  const [todo, setTodo] = useState<TodoItem[]>([]);
+
+  type TodoItem = {
+    id: number;
+    task: string;
+    checked: boolean;
+  };
 
   useEffect(() => {
     if (window.matchMedia("(prefers-color-scheme : dark)").matches) {
