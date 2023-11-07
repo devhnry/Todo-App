@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode : "class",
   theme: {
     fontFamily: {
       josefin: ["Josefin Sans", "sans-serif"],
@@ -28,6 +29,7 @@ export default {
         400: "hsl(233, 14%, 35%)",
         500: "hsl(237, 14%, 26%)",
         700: "hsl(235, 24%, 19%)",
+        800: "hsl(235, 24%, 11%)",
       },
       gradient: {
         "blue-to-purple":
@@ -46,6 +48,7 @@ export default {
       boxShadow: {
         md: "0 30px 45px -15px rgba(194, 195, 214, 0.40)",
         sm: "0 15px 30px -12px rgba(194, 195, 214, 0.40)",
+        "md-dark" : "0px 30px 45px -15px rgba(0, 0, 0, 0.50)"
       },
     },
   },

@@ -16,17 +16,17 @@ export default function TodoList({ todo, onClick, onDelete, onClear }: Props) {
   if (todo.length === 0) return null;
   return (
     <div>
-      <ul className="rounded-md overflow-hidden shadow-md font-light relative">
+      <ul className="rounded-md overflow-hidden shadow-md dark:shadow-md-dark font-light relative dark:text-light-grayish-blue-300">
         {todo.map((item) => (
           <li
-            className="bg-white-100 px-5 py-[14px] md:px-6 border-b border-light-grayish-blue-100 last:border-none flex justify-between items-center text-[13px] sm:text-[15px]"
+            className="bg-white-100 dark:bg-dark-grayish-blue-700 px-5 py-[14px] md:px-6 border-b border-light-grayish-blue-100 dark:border-dark-grayish-blue-500 last:border-none flex justify-between items-center text-[13px] sm:text-[15px]"
             key={item.id}
           >
             <div className="flex items-center gap-4">
               <div
                 onClick={() => onClick(item.id)}
                 id={`item-${item.id}`}
-                className={`cursor-pointer w-[20px] h-[20px] lg:w-[24px] lg:h-[24px] rounded-full border-light-grayish-blue-100 ${
+                className={`cursor-pointer w-[20px] h-[20px] lg:w-[24px] lg:h-[24px] rounded-full border-light-grayish-blue-100 dark:border-dark-grayish-blue-200 ${
                   item.checked == true
                     ? "bg-gradient-to-br from-light-blue to-purple border-none relative grid place-items-center"
                     : "border-[1.4px]"
@@ -42,7 +42,7 @@ export default function TodoList({ todo, onClick, onDelete, onClear }: Props) {
               <p
                 className={`${
                   item.checked === true
-                    ? "line-through text-light-grayish-blue-200"
+                    ? "line-through text-light-grayish-blue-200 dark:text-dark-grayish-blue-400"
                     : ""
                 }`}
               >
@@ -59,13 +59,14 @@ export default function TodoList({ todo, onClick, onDelete, onClear }: Props) {
             </button>
           </li>
         ))}
-        <li className="bg-white-100 flex justify-between font-normal text-dark-grayish-blue-100 px-5 py-[14px] text-[12px] md:text-[13.5px]">
+        <li className="bg-white-100 dark:bg-dark-grayish-blue-700  flex justify-between font-normal text-dark-grayish-blue-100 dark:text-dark-grayish-blue-300 px-5 py-[14px] text-[12px] md:text-[13.5px]">
             <div className={`${uncheckedItem === 0} ? "hidden" : "block"`}>
               {uncheckedItem} {uncheckedItem === 1 ? `item` : "items"} left
             </div>
             <button
               onClick={onClear}
-              className="hover:text-dark-grayish-blue-300 transition-all"
+              className="hover:text-dark-grayish-blue-300
+              dark:hover:text-light-grayish-blue-100 transition-all"
               type="button"
             >
               Clear Completed

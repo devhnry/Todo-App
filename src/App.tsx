@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import TodoForm from "./Components/TodoForm";
 import TodoList from "./Components/TodoList";
 import TodoFilter from "./Components/TodoFilter";
 import Header from "./Components/Header";
 
 export default function App() {
+  const [theme, setTheme] = useState("");
   const [category, setCategory] = useState("All");
   const [todo, setTodo] = useState([
     {
@@ -18,6 +19,26 @@ export default function App() {
       checked: false,
     },
   ]);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-color-scheme : dark)").matches) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  });
+
+  const handleThemeSwitch = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   const handleTodoCheck = (id: number) => {
     setTodo((todo) => {
@@ -73,6 +94,8 @@ export default function App() {
             ]);
             console.log(todo);
           }}
+          onClick={handleThemeSwitch}
+          mode={theme}
         />
         <TodoList
           todo={renderedTodo(category)}
