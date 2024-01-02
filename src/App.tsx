@@ -54,7 +54,6 @@ export default function App() {
 
   const toggleCategory = (category: string) => {
     setCategory(category);
-    console.log(category);
   };
 
   const renderedTodo = (selectedCategory: string) => {
@@ -87,7 +86,6 @@ export default function App() {
                 checked: false,
               },
             ]);
-            console.log(todo);
           }}
           onClick={handleThemeSwitch}
           mode={theme}

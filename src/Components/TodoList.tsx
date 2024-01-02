@@ -1,3 +1,4 @@
+import TaskCategoryView from "./TaskCategoryView";
 import TodoFilter from "./TodoFilter";
 
 interface Todo {
@@ -24,7 +25,7 @@ export default function TodoList({
   selectCategory,
 }: Props) {
   const uncheckedItem = todo.filter((item) => item.checked === false).length;
-  if (todo.length === 0) return null;
+  if (todo.length === 0) return <TaskCategoryView filterClick={filterClick} selectCategory={selectCategory} />;
   return (
     <div>
       <ul className="rounded-md overflow-hidden shadow-md dark:shadow-md-dark font-light relative dark:text-light-grayish-blue-300">
@@ -53,8 +54,8 @@ export default function TodoList({
               <p
                 className={`${
                   item.checked === true
-                    ? "line-through text-light-grayish-blue-200 dark:text-dark-grayish-blue-400"
-                    : ""
+                    ? "line-through text-dark-grayish-blue-200 dark:text-dark-grayish-blue-400"
+                    : "text-dark-grayish-blue-300 dark:text-light-grayish-blue-300"
                 }`}
               >
                 {item.task}

@@ -50,8 +50,8 @@ export default function TodoForm({ onSubmit, onClick, mode }: Props) {
             type="text"
             id="todo"
             placeholder="Create a new Todo..."
-            className="outline-none text-[13px] md:text-[16px]  border-none placeholder:text-[13px] sm:placeholder:text-[15px] placeholder:text-dark-grayish-blue-100 dark:placeholder:text-dark-grayish-blue-200 w-full dark:bg-dark-grayish-blue-700"
-          />
+            className="outline-none text-[13px] md:text-[16px]  border-none placeholder:text-[13px] sm:placeholder:text-[15px] placeholder:text-dark-grayish-blue-100 dark:placeholder:text-dark-grayish-blue-200 w-full dark:bg-dark-grayish-blue-700 bg-white-100 text-dark-grayish-blue-700 dark:text-light-grayish-blue-300"
+          />          
         </label>
         {errors.task && (
           <p className="text-white-100 pt-[1px] text-[12px]">
