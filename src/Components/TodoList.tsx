@@ -28,7 +28,7 @@ export default function TodoList({
   if (todo.length === 0) return <TaskCategoryView filterClick={filterClick} selectCategory={selectCategory} />;
   return (
     <div>
-      <ul className="rounded-md overflow-hidden shadow-md dark:shadow-md-dark font-light relative dark:text-light-grayish-blue-300">
+      <ul className="rounded-md overflow-hidden shadow-md dark:shadow-md-dark font-light relative dark:text-white-100">
         {todo.map((item) => (
           <li
             className="bg-white-100 dark:bg-dark-grayish-blue-700 px-5 py-[14px] md:px-6 border-b border-light-grayish-blue-100 dark:border-dark-grayish-blue-500 last:border-none flex justify-between items-center text-[13px] sm:text-[15px]"
@@ -38,7 +38,7 @@ export default function TodoList({
               <div
                 onClick={() => onClick(item.id)}
                 id={`item-${item.id}`}
-                className={`cursor-pointer w-[20px] h-[20px] lg:w-[24px] lg:h-[24px] rounded-full border-light-grayish-blue-100 dark:border-dark-grayish-blue-200 ${
+                className={`cursor-pointer w-[20px] h-[20px] lg:w-[24px] lg:h-[22px] rounded-full border-light-grayish-blue-100 dark:border-dark-grayish-blue-200 ${
                   item.checked == true
                     ? "bg-gradient-to-br from-light-blue to-purple border-none relative grid place-items-center"
                     : "border-[1.4px]"
